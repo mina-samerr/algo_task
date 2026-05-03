@@ -1,0 +1,14 @@
+def is_triangle_recursive(A, left, right):
+    if right - left < 2:
+        return 0
+    
+    if right - left == 2:
+        if A[left] + A[left+1] > A[left+2]:
+            return 1
+        return 0
+    
+    mid = (left + right) // 2
+    
+    return (is_triangle_recursive(A, left, mid + 1) or 
+            is_triangle_recursive(A, mid, right) or 
+            (A[mid-1] + A[mid] > A[mid+1]))
