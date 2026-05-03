@@ -1,14 +1,14 @@
-def is_triangle_recursive(A, left, right):
-    if right - left < 2:
+def is_triangle_div(a,l,r):
+    if r-l < 2:
         return 0
     
-    if right - left == 2:
-        if A[left] + A[left+1] > A[left+2]:
+    if r-l == 2:
+        if a[l] +a[l+1]>a[l+2]:
             return 1
         return 0
     
-    mid = (left + right) // 2
+    mid=(l+r) 
     
-    return (is_triangle_recursive(A, left, mid + 1) or 
-            is_triangle_recursive(A, mid, right) or 
-            (A[mid-1] + A[mid] > A[mid+1]))
+    return (is_triangle_div(a, l, mid + 1) or 
+            is_triangle_div(a, mid, r) or 
+            (a[mid-1]+a[mid]>a[mid+1]))
